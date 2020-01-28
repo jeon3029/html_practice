@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+table,tr,td,th{
+  border:solid 1px black;
+}
+    </style>
+  </head>
+  <body>
+  <script type="text/javascript">
+    var book={title:"멀티미디어 배움터",publisher:"생능출판사",
+      autuor:"최윤철,임순범",price:25000,pages:442};
+
+book.info = new Object();
+book.info.pages=442;
+book.info.date = "2010년 1월 30일";
+book.info.ISBN10="8970506470";
+book.info.size="188mm*254mm";
+
+var property1 = book.title;
+
+var property2 = book.info.price;
+
+var property3 = book["title"];
+var property4 = book.info["price"];
+
+document.write("<table>");
+document.write("<tr>");
+document.write("<th>"+"항목(속성 : property)</th><th>내용</th></tr>");
+for (var p in book){
+  document.write("<tr>");
+  document.write("<td>Property name: "+p+"</td><td>Property value: "+book[p]+"</td></tr>");
+}
+document.write("</table><br><br><br>");
+
+function display_book(){
+  document.write("Title: "+this.title + "<br>");
+  document.write("Publisher: "+this.publisher + "<br>");
+  document.write("Author: "+this.author + "<br>");
+  document.write("Price: "+this.price + "<br>");
+  document.write("Pages: "+this.pages + "<br>");
+}
+function Book(title_value, publisher_value, author_value, price_value, pages_value){
+this.title=title_value;
+this.publisher=publisher_value;
+this.author=author_value;
+this.price=price_value;
+this.pages=pages_value;
+this.display=display_book;
+}
+var book_obj=new Book("멀티미디어 배움터 2.0","생능출판사","최윤철,임순범",25000,442);
+book_obj.display();
+  </script>
+  </body>
+</html>

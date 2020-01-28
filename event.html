@@ -1,0 +1,30 @@
+<body>
+  <form action = "">
+    <input id = "username" type = "text" value = "Name of User" />
+    <input type = "button" value = "Yes" onClick="alert('You pressed Yes');"/>
+    <input type = "button" value = "No" onClick="alert('You pressed No');"/>
+  </form>
+  <script type = "text/javascript">
+    function myEventHandler(){
+      alert("Please type your full name");
+
+    }
+var dom = document.getElementById("username");
+dom.onclick=myEventHandler;
+function start(){
+dom = document.getElementById("sec");
+  dom.value = (parseFloat(dom.value)+0.1).toFixed(1);
+  if(!stopped)setTimeout(start,100);
+}
+  </script>
+  <h2>Stop Watch</h2>
+  <form action ="">
+
+    <input type = "button" value = "Start" onClick="stopped=false;setTimeout(start,100);"/>
+
+    <input type = "button" value = "Stop" onClick="stopped=true;"/>
+    <input type = "reset"/><br><br>
+    <input id = "sec" type = "text" value="0" size = "2">seconds
+  </form>
+</body>
+

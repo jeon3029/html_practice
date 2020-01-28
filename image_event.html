@@ -1,0 +1,70 @@
+<head>
+<style = type"text/css">
+.my_image{
+visibility:visible;
+}
+</style>
+</head>
+<button id = "b1">innerHTML</button>
+<button id = "b2">innerText</button>
+<br>
+<p id ="text">This text will be dynamically changed</p>
+<script type = "text/javascript">
+  function toggleVisibility(id){
+  var dom = document.getElementById(id);
+    if(dom.style.visibility == "visible"){
+    dom.style.visibility="hidden";}
+    else
+      dom.style.visibility="visible";
+  
+  }
+function changePositions(){
+  for(i=1;i<=3;i++){
+    var left = document.getElementById("left"+i).value;
+    var top = document.getElementById("top"+i).value;
+    document.getElementById("image"+i).style.left = left+"px";
+    document.getElementById("image"+i).style.top = top+"px";
+  }
+}
+document.getElementById("b1").onmouseover=mouseover_innerHTML;
+document.getElementById("b2").onmouseover=mouseover_innerText;
+
+document.getElementById("b1").onmouseout=reset_text;
+document.getElementById("b2").onmouseout=reset_text;
+function mouseover_innerHTML(){
+  document.getElementById("text").innerHTML="<h1>Mouse cursor is over the inner HTML button</h1>";
+  console.log("inner html");
+}
+function mouseover_innerText(){
+  document.getElementById("text").innerText="<h1>Mouse cursor is over the inner Text button</h1>";
+  console.log("inner text");
+}
+function reset_text(){
+document.getElementById("text").innerHTML="This text will be dynamically changed";
+}
+
+  </script>
+  <body>
+    <table>
+      <tr><td>
+          <img src = "image/image1.jpg" id = "image1" style ="visibility:visible;position:relative;"/></td></tr>
+      <tr><td>
+          <img src = "image/image2.jpg" id = "image2" style = "visibility:visible;position:relative;"/></td></tr>
+      <tr><td>
+          <img src = "image/image3.jpg" id = "image3" style = "visibility:visible;position:relative;"/></td></tr>
+      
+      </table>
+    <form>
+      Image1:Left<input id = "left1" size = "2" type = "text"/>
+      Top<input id = "top1" size = "2" type = "text"/><br>
+      Image2:Left<input id = "left2" size = "2" type = "text"/>
+      Top<input id = "top2" size = "2" type = "text"/><br>
+      Image3:Left<input id = "left3" size = "2" type = "text"/>
+      Top<input id = "top3" size = "2" type = "text"/><br>
+      <input type = "button" value = "Move All" onClick="changePositions();"/>
+      </form>
+    </body>
+  Toggle Visibility:
+  <button onClick="toggleVisibility('image1');">Image 1</button>
+  <button onClick="toggleVisibility('image2');">Image 2</button>
+  <button onClick="toggleVisibility('image3');">Image 3</button>

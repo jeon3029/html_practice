@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+
+
+  <body>
+    <form>
+      추천도서: <input id = "recommend" type = "text" size = "50">
+      <br><br>
+      텍스트 박스 : <input id = "username"type = "text"value="Name of User">
+    </form>
+    <script type="text/javascript">
+      dom = document.getElementById("recommend");
+dom.value = "컴퓨터과 IT기술의 이해 [개정판-2판]";
+document.write("<br>")
+
+var dom = document.getElementById("username");
+setTimeout(function(){
+  alert(dom.value);
+  var newValue = prompt("Type new value of text box");
+dom.value = newValue;
+}, 1000);
+
+    </script>
+
+  </body>

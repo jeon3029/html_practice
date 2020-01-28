@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>자바 스크립트 예제</title>
+    <style type="text/css">
+
+
+    </style>
+
+    <link rel = "stylesheet"href="style.css">
+  </head>
+  <body>
+    <p style="color:blue">이것은
+    <span style="background-color:yellow;color:red">문장입니다.
+    </span>
+    </p>
+    <form>
+      <input type="text">
+      <input type="button" value="테스트">
+      <hr>
+    </form>
+    <script type="text/javascript">
+      document.write("Hello, welcome to javascript world!");
+var index,name="mobile";
+var a = "3";
+var b=2;
+c = b+3+a;
+d= a+b;
+document.write("<br>");
+document.write(c+"<br>");
+document.write(d);
+var length = 123, length_num, length_str;
+length_num = length+10;
+length_str = length.toString() + 10;
+document.write("Length in Number: " + length_num + " cm"+"<br>");
+document.write("Length in String: " + length_str + " cm"+"<br>");
+var num = parseInt(length_str)+20;
+document.write("Length in Integer: " + num + " cm");
+document.write("Length in Number: " + length_num + " cm"+"<br>");
+var title1 = "멀티미디어 배움터 2.0";
+var title2 = "모바일 멀티미디어";
+var title3 = "자바입문:이론과 실습";
+document.write("<table>");
+document.write("<caption>베스트 셀러</caption>");
+document.write("<tr>");
+document.write("<th>순위</th>");
+document.write("<th>제목</th>");
+document.write("</tr>");
+document.write("<tr><td>1</td><td>"+title1+"</td></tr>");
+document.write("<tr><td>2</td><td>"+title2+"</td></tr>");
+document.write("<tr><td>3</td><td>"+title3+"</td></tr>");
+document.write("</table>");
+var answer = confirm("주문한 서적을 결제하시겠습니까?");
+
+if( answer==true){
+
+  //var answer=prompt("서적 제목을 입력하세요","모바일 멀티미디어");
+  //document.write("책 제목 = "+answer+"<br>");
+  //document.write("책이 구매되었습니다.<br>");
+  var book1 ="IT: 컴퓨터과 IT기술의 이해";
+  var book2 = "SNS: 소셜미디어의 이해와 활용";
+  var book3 = "Multimedia: 멀티미디어 배움터 2.0";
+  var book_list=book1+"\n"+book2+"\n"+book3;
+  var choice = prompt("키워드를 입력하세요...\n"+book_list,"IT");
+  var title;
+  switch (choice){
+    case "IT":
+      title=book1;break;
+    case "SNS":
+      title=book2;break;
+    case "Multimedia":
+      title=book3;break;
+    default:
+      alert("리스트에 없는 책을 선택하셨습니다.");
+      title="";
+  }
+  document.write("<tr>");
+  document.write("<td>"+title+"</td>");
+  document.write("</tr>");
+}
+else{
+  document.write("책을 구매하지 않습니다.<br>");
+}
+
+document.write("<table border =\"1\">");
+document.write("<tr>");
+var fib1 = 1;
+var fib2 = 2;
+while(fib2<1000){
+  document.write("<td>");
+  document.write(fib2);
+  document.write("</td>");
+  var tmp = fib1 + fib2;
+  fib1 = fib2;
+  fib2 = tmp;
+}
+document.write("</tr>");
+document.write("</table>");
+function show_alert(){
+  alert("5 seconds passed...");
+}
+function show_message(){
+  document.write("3seconds passed...");
+}
+function add(a,b){
+  return (a+b);
+}
+function print_value(name,v){
+  document.write("Name : "+name+",");
+  document.write("Value : "+v+"<br>");
+}
+  //setTimeout(show_alert,5000);
+  //setTimeout(show_message,3000);
+print_value("The title of the book","HTML5 웹프로그래밍 입문");
+print_value("No name");
+print_value("PI",3.14);
+result1 = add(12,34);
+result2 = add(56,"78");
+document.write("result1 = "+result1+"<br>");
+document.write("result2 = "+result2+"<br>");
+document.write("11+12 = "+add(11,12)+"<br>");
+document.write("Steve+Jobs = "+add("Steve","Jobs")+"<br>");
+
+var today = new Date();
+var y = today.getFullYear();
+var m = today.getMonth()+1;
+var d = today.getDate();
+document.write("오늘날짜: "+y+"년"+m+"월"+d+"일<br>");
+    </script>
+
+  </body>
+</html>

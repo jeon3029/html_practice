@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head><title></title></head>
+
+  <body>
+    <div>
+    <canvas id ="myCanvas"width="500"height="500" style="border:solid 1px black;"></canvas>
+    <img id = "canvasImage"/>
+  </div>
+  <script type="text/javascript">
+    var canvas=document.getElementById("myCanvas");
+var myContext=canvas.getContext("2d");
+myContext.rect(50,50,100,100);
+myContext.rect(20,20,180,180);
+myContext.rect(120,120,50,50);
+
+myContext.beginPath();
+myContext.arc(300,100,20,0,1.5*Math.PI);
+
+myContext.quadraticCurveTo(100,10,200,200);
+myContext.bezierCurveTo(300,100,600,100,450,200);
+myContext.stroke();
+
+myContext.beginPath();
+myContext.moveTo(10,20);
+myContext.lineTo(100,20);
+myContext.lineWidth=20;
+myContext.strokeStyle="blue";
+myContext.lineCap="butt";
+myContext.stroke();
+
+myContext.beginPath();
+myContext.moveTo(10,60);
+myContext.lineTo(100,60);
+myContext.lineWidth=20;
+myContext.strokeStyle="red";
+myContext.lineCap="round";
+myContext.stroke();
+
+myContext.beginPath();
+myContext.moveTo(10,100);
+myContext.lineTo(100,100);
+myContext.lineWidth=20;
+myContext.strokeStyle="green";
+myContext.lineCap="square";
+myContext.stroke();
+
+
+myContext.beginPath();
+myContext.rect(20,200,50,80);
+myContext.width=20;
+myContext.strokeStyle="black";
+myContext.lineJoin="miter";
+myContext.fillStyle="grey";
+myContext.stroke();
+myContext.fill();
+
+myContext.beginPath();
+myContext.rect(110,200,50,80);
+myContext.width=20;
+myContext.strokeStyle="black";
+myContext.lineJoin="round";
+myContext.fillStyle="pink";
+myContext.stroke();
+myContext.fill();
+
+myContext.beginPath();
+myContext.rect(200,200,50,80);
+myContext.width=20;
+myContext.strokeStyle="black";
+myContext.lineJoin="bevel";
+myContext.fillStyle="yellow";
+myContext.stroke();
+myContext.fill();
+
+var imgObj = new Image();
+imgObj.src = "image/image11.jpg";
+imgObj.onload=function(){
+  //50,50 지점에 이미지 그리기
+  //myContext.drawImage(imgObj,50,50);
+  //크기 조정하기(150*100) 크기
+  //myContext.drawImage(imgObj,350,50,150,100);
+  //myContext.drawImage(imgObj,550,50,100,100);
+  //자른 후 크기조정 70,50지점에서 70*70크기로 자른 후 450,180지점에 70*70으로 그리기
+  //myContext.drawImage(imgObj,70,50,70,70,350,180,70,70);
+  //myContext.drawImage(imgObj,120,50,100,50,450,180,100,50);
+}
+/*
+myContext.rect(0,0,400,300);
+var text1 = "HTML5 Text Drawing!";
+var text2 = "Left aligned text";
+var text3 = "Center aligned text";
+var text4 = "Right aligned text";
+myContext.font = "italic 16pt Times New Roman";
+myContext.fillStyle="blue";
+myContext.fillText(text1,200,50);
+
+myContext.font = "12pt Tahoma";
+myContext.fillStyle="red";
+myContext.textAlign="left";
+myContext.fillText(text2,200,100);
+
+
+myContext.font = "bold 20pt Coulier New";
+myContext.strokeStyle="black";
+myContext.textAlign="center";
+myContext.lineWidth=1;
+myContext.strokeText(text3,200,150);
+myContext.lineWidth=2;
+myContext.strokeText("lineWidth=2",200,200);
+
+
+myContext.font = "bold 16pt Batang";
+myContext.fillStyle="green";
+myContext.textAlign="right";
+myContext.fillText(text4,200,250);
+myContext.stroke();
+
+myContext.beginPath();
+myContext.rect(40,10,60,100);
+myContext.closePath();
+myContext.stroke();
+myContext.clip();
+
+myContext.beginPath();
+myContext.rect(20,20,60,60);
+myContext.fillStyle="green";
+myContext.shadowColor =   "blue";
+myContext.shadowBlur = 30;
+myContext.shadowOffsetX=10;
+myContext.shadowOffsetY=20;
+myContext.fill();
+
+myContext.beginPath();
+myContext.arc(80,30,30,0,2*Math.PI);
+myContext.fillStyle="red";
+myContext.globalAlpha = 0.5;
+myContext.shadowColor = "transparent";
+myContext.fill();
+
+
+var imgObj = new Image();
+imgObj.src = "image/image5.jpg";
+imgObj.onload = function(){
+  //original drawing
+  myContext.drawImage(imgObj,50,50);
+  //이동 변환
+  
+  myContext.translate(300,0);
+  myContext.drawImage(imgObj,50,50);
+//크기 변환
+  myContext.setTransform(1,0,0,1,0,0);
+  myContext.scale(1.2,0.33);
+  myContext.drawImage(imgObj,40,800);
+//회전 변환
+  myContext.setTransform(1,0,0,1,0,0);
+  myContext.translate(750,0);
+  myContext.rotate(Math.PI/4);
+  myContext.drawImage(imgObj,0,0);
+}*/
+myContext.rect(0,0,400,200);
+myContext.fillStyle = "grey";
+myContext.fill();
+
+var text1 = "HTML5 Text Drawing!";
+
+myContext.font="24pt Tahoma";
+myContext.fillStyle="red";
+myContext.fillText(text1,50,50);
+
+myContext.lineWidth = 1;
+myContext.font="32pt San Serif";
+myContext.strokeStyle = "blue";
+myContext.strokeText("lineWidth=1",100,150);
+
+var dataURL = canvas.toDataURL();
+
+document.getElementById("canvasImage").src=dataURL;
+
+  </script>
+</body>
+  </html>
