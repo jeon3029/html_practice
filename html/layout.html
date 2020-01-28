@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+<head>
+  <style type="text/css">
+    span{
+      display:inline-block;
+      width:300px;
+      height:300px;
+      background-color:yellow;
+      margin-bottom:100px;
+    }
+    #z-index-1{
+      position:absolute;
+      width:100%;
+      height:300px;
+      z-index:10;
+      background-color:yellow;
+    }
+    #z-index-2{
+      position:absolute;
+      width:100%;
+      height:200px;
+      z-index:50;
+      background-color:blue;
+    }
+    #transform_rotate{
+      width:300px;
+        height:300px;
+          background-color:yellow;
+            background-image:url(image/image1.jpg);
+              transform:rotate(45deg);
+    }
+    hr{
+      clear:both;
+    }
+    /* span 속성에서는 적용되지 않는다*/
+  </style>
+</head>
+<body>
+  <span>Inline-> Block</span>
+  <span>Inline->Bock</span>
+  <div id="z-index-1"></div>
+  <div id="z-index-2"></div>
+  </hr>
+  <div id="transform_rotate"></div>
+</body>
+</html>
+
+
