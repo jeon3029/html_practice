@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  p #{title}에 오신것을 환영합니다🥳
+  a(href="newcomment") 방명록 작성
+  #wrapper
+    h2 남겨진 방명록
+    #userList
+      table
+        thead
+          th Title
+          th User
+          th Email
+          th Time
+          th Comment
+        tbody
+          each article, i in articleList
+            tr
+              td
+                p=article.article_title
+              td 
+                p=article.article_userid
+              td
+                p=article.article_email
+              td
+                p=article.article_datetime
+              td
+                p=article.article_content

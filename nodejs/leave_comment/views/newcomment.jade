@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  form#article_form(action='/addcomment', method="post")
+      table
+        caption 방명록 작성
+        tbody
+          tr
+            td 제목
+            td
+              input#comment_title(type='text', size='50', required, name='title')
+          tr
+            td 글쓴이
+            td
+              input#comment_userid(type='text', size='50', required, name='userid')
+          tr
+            td 이메일
+            td
+              input#comment_email(type='email', size='50', name='email')
+          tr
+            td 시간
+            td
+              input#comment_datetime(type='datetime_local', size='50', readonly, name='datetime')
+          tr
+            td 내용
+            td
+              textarea#comment_content(type='text', class="content_input",required, name='content')내용을 입력하세요.    
+      button 작성
+      button(onclick='reset_input();') 취소
+      input(type="button" value="뒤로" onclick="location.href='/'")
+    script.
+      // Calculate Time
+      var temp = document.getElementById("comment_datetime");
+      var now = new Date();
+      dom = now.getFullYear()+"년 " +now.getMonth()+1 +"월 " + now.getDate()+"일 "+now.getHours()+"시 "+now.getMinutes()+"분";
+      temp.value = dom;
