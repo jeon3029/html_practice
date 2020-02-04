@@ -11,7 +11,8 @@
     <form action = "javascript:my_func();">
         <input type = "text" size = "50" id = "my_input"/>
         <input type="submit" value="계산" >
-        <div id = "content">
+        <br>
+        <div id = "content" style="margin-top: 10px;">
         </div>
     </form>
     <script type = "text/javascript">
@@ -29,7 +30,7 @@
                 }
                 text +="</tr>";
             }
-            text+= "</tr></tbody></table>";
+            text+= "</tbody></table><br>";
             dom.innerHTML+=text;
         }
     </script>

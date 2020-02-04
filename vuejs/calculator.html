@@ -1,0 +1,63 @@
+<!-- 계산기 만들기 -->
+<!-- 15반 전태준 -->
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style = "text/css">
+    .button{
+       width: 40px;height:40px;margin-top:10px;margin-bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+         <input size = "40"v-model="ans" value="" readonly>
+        <br>
+        <input class = "button" type="button" value = "7" v-on:click="append">
+        <input class="button" type="button" value="8" v-on:click="append">
+        <input class="button" type="button" value="9" v-on:click="append">
+        <input class="button" type="button" value="/" v-on:click="append">
+        <br>
+        <input class="button" type="button" type="button" value="4" v-on:click="append">
+        <input class="button" type="button" value="5" v-on:click="append">
+        <input class="button" type="button" value="6" v-on:click="append">
+        <input class="button" type="button" value="*" v-on:click="append">
+        <br>
+        <input class="button" type="button" value="1" v-on:click="append">
+        <input class="button" type="button" value="2" v-on:click="append">
+        <input class="button" type="button" value="3" v-on:click="append">
+        <input class="button" type="button" value="-" v-on:click="append">
+        <br>
+        <input class="button" type="button" value="C" v-on:click="reset">
+        <input class="button" type="button" value="0" v-on:click="append">
+        <input class="button" type="button" value="=" v-on:click="calculate">
+        <input class="button" type="button" value="+" v-on:click="append">
+        <br>  
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            ans:' '
+        },
+        methods: {
+            append:function(e){
+                console.log("누른 버튼 : ",e.target.value);
+                this.ans += e.target.value;
+                console.log("출력창 수정 : ",this.ans);
+            },
+            calculate: function () {
+                this.ans = eval(this.ans);
+                console.log("값 출력. : ", this.ans);
+                //return this.result;
+            },
+            reset:function(){ 
+                console.log("값 초기화");
+                this.ans = ""
+            }
+        }
+    });
+</script>
+</html>

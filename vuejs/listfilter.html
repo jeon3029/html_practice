@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Vue Template - Watch</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+        <li v-for="n in evenNumbers">{{n}}</li>
+    </ul>
+    
+  </div>
+  <script src="https:/cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        numbers:[1,2,3,4,5]
+      },
+      computed: {
+        evenNumbers(){
+            return this.numbers.filter(function(number){
+                return number%2==0
+            })
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

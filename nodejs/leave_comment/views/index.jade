@@ -14,16 +14,19 @@ block content
           th Email
           th Time
           th Comment
+          th Delete
         tbody
-          each article, i in articleList
+          each com, i in articleList
             tr
               td
-                p=article.article_title
+                p=com.comment_title
               td 
-                p=article.article_userid
+                p=com.comment_userid
               td
-                p=article.article_email
+                p=com.comment_email
               td
-                p=article.article_datetime
+                p=com.comment_datetime
               td
-                p=article.article_content
+                p=com.comment_content
+              td
+                a(href="deletecomment" rel ="this.id") del

@@ -1,0 +1,27 @@
+<html>
+
+<body>
+  <div id="v-for-object" class = "demo">
+    <ul>
+      <li v-for="(value,key,index) in object">
+        [{{index}}] {{key}} :{{value}}
+      </li>
+    </ul>
+  </div>
+  <script src="https:/cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    var vs = new Vue({
+      el: '#v-for-object',
+      data: {
+        object:{
+            title:'how to do lists in vue',
+            author:'jane doe',
+            publishedAt:'2016-04-10'
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

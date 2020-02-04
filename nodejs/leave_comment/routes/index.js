@@ -16,6 +16,13 @@ router.get('/newcomment', function (req, res) {
     title: "세부 내용 작성"
   })
 });
+router.get('/deletecomment/:id', function (req, res) {
+  var db = req.db;
+  var useToDelete = req.params.id;
+  db.collection('comments').removeById(useToDelete,function(err,result){
+    res.send((result==1)?{msg:''}:{msg:'error: '+err});
+  });
+});
 router.get('/<int>')
 router.post('/addcomment', function (req, res) {
   var db = req.db;

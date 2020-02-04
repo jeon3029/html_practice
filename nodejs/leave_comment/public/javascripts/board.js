@@ -12,7 +12,3 @@ function reset_input() {
     this.comment_userid.value = "";
     this.comment_email.value = "";
 }
-
-function back_homepage() {
-
-}

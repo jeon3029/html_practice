@@ -1,0 +1,27 @@
+<html>
+
+<body>
+  <div id="app">
+    <li v-for="value in array">
+        {{value}}
+    </li>
+    <button @click="filter">Filter</button>
+  </div>
+  <script src="https:/cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        array:[1,2,3,4]
+      },
+      methods:{
+          filter(){
+              this.array = this.array.filter(x=>x>1);
+          }
+      }
+    });
+  </script>
+</body>
+
+</html>

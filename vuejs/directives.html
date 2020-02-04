@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Vue Template - Directives</title>
+    </head>
+    <body>
+        <div id = "app">
+            <a v-if="ifFlag">IF</a>
+            <ul>
+                <li v-for="system in systems">{{system}}</li>
+            </ul>
+            <p v-show="showFlag">SHOW</p>
+            <h5 v-bind:id="uid">UID</h5>
+            <button v-on:click="popupAlert">경고버튼</button>
+            <button v-on:click="ifFlagSwitch">IF 바꾸기 버튼</button>
+            <button v-on:click="showFlagSwitch">Show 바꾸기 버튼</button>
+        </div>
+
+        <script src = "https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+        <script>
+        new Vue({
+            el:'#app',
+            data:{
+                ifFlag : true,
+                showFlag:true,
+                systems:['android','ios','window'],
+                uid:10
+            },
+            methods:{
+                popupAlert:function(){
+                    return alert('경고!!!');
+                },
+                ifFlagSwitch:function(){
+                    this.ifFlag= !this.ifFlag;
+                },
+                showFlagSwitch:function(){
+                    this.showFlag = !this.showFlag;
+                }
+            }
+        });
+        </script>
+    </body>
+
+</html>

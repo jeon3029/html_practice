@@ -1,0 +1,66 @@
+<!-- v-for 사용해서 계산기 만들기 -->
+<!-- 15반 전태준 -->
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style = "text/css">
+    .button{
+       width: 100px;height:100px;margin-top:10px;margin-bottom: 10px;
+       font-size: 30;
+       text-align: center;
+    }
+    table{
+        margin-top: 10px;
+        border:solid 1px #b1b1b1;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>계산기</h1>
+         <input size = "55"v-model="ans" value="" readonly>
+        <br>
+        <table>
+            <template v-for="(value,index) in buttons">
+                <template v-if="index%4==0"><tr></template>
+                <td><input type = button class = "button" v-bind:value=value.text v-on:click="calculate"></td>
+                <template v-if="index%4==3"></tr></template>
+            </template>
+        </table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            ans:'',
+            buttons:[
+                    {text:'7'},{text:'8'},{text:'9'},{text:'/'},
+                    {text:'4'},{text:'5'},{text:'6'},{text:'*'},
+                    {text:'1'},{text:'2'},{text:'3'},{text:'-'},
+                    {text:'C'},{text:'0'},{text:'='},{text:'+'}
+                ]
+            
+        },
+        methods: {
+            calculate: function (e) {
+                if(e.target.value=='='){
+                    this.ans = eval(this.ans);
+                    console.log("값 출력. : ", this.ans);
+                }
+                else if(e.target.value=='C'){
+                    this.ans = '';
+                    console.log("값 초기화");
+                }
+                else{
+                    this.ans+=e.target.value;
+                    console.log("값 추가 : ",e.target.value);
+                    console.log("값 : ",this.ans);
+                }
+            }
+        }
+
+    });
+</script>
+</html>

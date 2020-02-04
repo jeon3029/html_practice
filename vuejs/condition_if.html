@@ -1,0 +1,44 @@
+<html>
+    <head>
+    <script src = "https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id = "app">
+            <p v-if="ismessage">{{message}}</p>
+            <p v-if="iserror">{{error}}</p>
+            <button v-on:click="switch"">스위치버튼</button>
+            <div v-if="kind=='system'">
+                시스템:{{message}}
+            </div>
+            <div v-else-if="kind=='SMS'">
+              문자:{{message}}
+            </div>
+            <div v-else-if="kind=='error'">
+              ERROR:{{error}}
+            </div>
+            <div v-else>
+                {{elsemsg}}
+            </div>
+
+        </div>
+    </body>
+    <script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            ismessage : true,
+            iserror:true,
+            message:'Vue동작이 잘 됩니다.',
+            error:'에러',
+            elsemsg:'이외의 값이 입력되었습니다.',
+            kind:'system',
+        },
+         methods:{
+            switch:function(){
+                this.ismessage = !this.ismessage;
+                this.iserror = !this.iserror;
+            }
+         }
+    });
+    </script>
+</html>

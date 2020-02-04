@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Vue Template - Computed</title>
+        <script src = "https://unpkg.com/vue"></script>
+
+    </head>
+    <body>
+        <div id = "app">
+            <input v-model="message">
+            <p>{{changeMessage}}</p>
+        </div>
+    </body>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'Hello Vue.js!',
+            printMessage:'printMessage'
+        },
+        computed:{
+            changeMessage:function(){
+                this.printMessage=this.message;
+                console.log("printMessage값이 바뀝니다. : ",this.printMessage);
+                return this.printMessage;
+            }
+        }
+    });
+    </script>
+</html>

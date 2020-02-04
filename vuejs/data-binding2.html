@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset = "utf-8">
+    <meta name = "viewport"content="width=device-width">
+    <title>JS Bin</title>
+</head>
+<body>
+    <div id = "app">
+        <h1>Hello, {{name}}</h1>
+        <h3><input type="checkbox" v-model="smile"/>Smile Pepe</h3>
+        <img :src="smile? feelsgood:feelsbad"/>
+    </div>
+    <script src = "https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                name:'PePe',
+                smile:true,
+                feelsgood:'./hello.gif',
+                feelsbad:'./verysad.gif'
+            }
+        })
+    </script>
+</body>
+</html>

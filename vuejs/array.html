@@ -1,0 +1,24 @@
+<html>
+<body>
+  <div id="app">
+    <div v-bind:style="[baseStyles,overridingStyles]">배열구문</div>
+  </div>
+  <script src="https:/cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+          baseStyles:{
+              color:'red',
+              fontSize:'13px'
+          },
+          overridingStyles:{
+              backgroundColor:'black'
+          }
+      }
+    });
+  </script>
+</body>
+
+</html>

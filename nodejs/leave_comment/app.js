@@ -8,8 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var mongo = require('mongodb')
-var monk = require('monk')
-var db = monk('localhost:27017/my_db'); // Mongodb는 27017 포트 사용
+//var monk = require('monk')
+//var db = monk('localhost:27017/my_db',{native_parser:true});
+var db = mongo.db('mongodb://localhost:27017/my_db',{native_parser:true});
 
 var app = express();
 

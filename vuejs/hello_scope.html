@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue.js Sample</title>
+    </head>
+    <body>
+
+        <div id = "hello">
+            {{message}}
+        </div>
+        <div id = "world">
+            {{message}}
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el:'#hello',
+                data:{
+                    message:"Hello Vue.js"
+                }
+            })
+            new Vue({
+                el:'#world',
+                data:{
+                    message:'Vue.js World'
+                }
+            })
+        </script>
+    </body>
+
+</html>
