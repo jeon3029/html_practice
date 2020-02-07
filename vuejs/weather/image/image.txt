@@ -1,0 +1,30 @@
+rainy.gif :
+ https://user-images.githubusercontent.com/10026516/74004620-996c2400-49b9-11ea-9626-024e2ec3b4cc.gif
+https://bit.ly/3biKp8M
+
+cloudy.gif:
+https://user-images.githubusercontent.com/46726050/74004671-cc161c80-49b9-11ea-9439-4447142aab1b.gif
+https://bit.ly/2Uxv6CU
+
+suuny.gif:
+https://user-images.githubusercontent.com/46726050/74004691-da643880-49b9-11ea-9698-d1e32f2f6dd7.gif
+https://bit.ly/2UxkSmj
+
+snowy.gif:
+https://user-images.githubusercontent.com/46726050/74004703-e64ffa80-49b9-11ea-8e79-e1bdc03921f7.gif
+https://bit.ly/2S30ffX
+
+
+cloudy.png
+https://user-images.githubusercontent.com/10026516/74007737-67ab8b00-49c2-11ea-914f-14769b1e44be.png
+
+rainy.png
+https://user-images.githubusercontent.com/10026516/74007804-8f9aee80-49c2-11ea-96e9-342afbae62fd.png
+
+snowy.png
+https://user-images.githubusercontent.com/10026516/74007812-988bc000-49c2-11ea-96bd-10f3cfab2137.png
+
+sunny.png
+https://user-images.githubusercontent.com/10026516/74007825-a3deeb80-49c2-11ea-9691-ba5a028de475.png
+
+source of image icon : https://www.flaticon.com/categories/weather/2

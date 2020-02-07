@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="front">
+            <div>
+            <!-- 날씨 check box-->
+                <input type="radio" value='sunny' name="weather" v-model="weather" />Sunny
+                <input type="radio" value='rainy' name="weather" v-model="weather"/>Rainy
+                <input type="radio" value='cloudy' name="weather" v-model="weather"/>Cloudy
+                <input type="radio" value='snowy' name="weather" v-model="weather"/>Snowy
+                <br>
+                Location : <input type="text" placeholder="위치" v-model="Location" size="10">
+                Temperature : <input type="text" placeholder="온도" v-model="Temperature" size="10">
+                
+                Humidity : <input type="text" placeholder="습도" v-model="humidity" size="10">
+                Wind : <input type="text" placeholder="풍속" v-model="windP" size="10" style="margin-bottom: 20px;">
+
+            <!--Back ground 이미지 표시-->
+                <div>
+                    <template v-if="weather=='sunny'">
+                        <div class="weather_image" style="background-image:url('https://bit.ly/2UxkSmj')">
+                            <h2 id="Loca">{{Location}}</h2>
+                            <h1 id="Temp">{{Temperature}}<sup>o</sup></h1>
+                            <h2 id="Hum">습도:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{humidity}} %</h2>
+                            <h2 id="wind">풍속:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{windP}}&nbspMPH</h2>
+                        </div>
+                    </template>
+                    <template v-else-if="weather=='rainy'">
+                        <div class="weather_image" style="background-image:url('https://bit.ly/3biKp8M')">
+                            <h2 id="Loca">{{Location}}</h2>
+                            <h1 id="Temp">{{Temperature}}<sup>o</sup></h1>
+                            <h2 id="Hum">습도:               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{humidity}} %</h2>
+                            <h2 id="wind">풍속:              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{windP}}&nbspMPH</h2>
+                        </div>
+                    </template>
+                     <template v-else-if="weather=='cloudy'">
+                        <div class="weather_image" style="background-image:url('https://bit.ly/2Uxv6CU')">
+                            <h2 id="Loca">{{Location}}</h2>
+                            <h1 id="Temp">{{Temperature}}<sup>o</sup></h1>
+                            <h2 id="Hum">습도:               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{humidity}} %</h2>
+                            <h2 id="wind">풍속:              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{windP}}&nbspMPH</h2>
+                        </div>
+                    </template>
+                     <template v-else-if="weather=='snowy'">
+                        <div class="weather_image" style="background-image:url('https://bit.ly/2S30ffX')">
+                            <h2 id="Loca">{{Location}}</h2>
+                            <h1 id="Temp">{{Temperature}}<sup>o</sup></h1>
+                            <h2 id="Hum">습도:               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{humidity}} %</h2>
+                            <h2 id="wind">풍속:              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{windP}}&nbspMPH</h2>
+                        </div>
+                    </template>
+                </div>
+                
+             </div>
+            <div class="lower" style="height:200px;width:400x;">
+                <div class="float_image">
+                    <p class="lower_date">{{today}}</p>
+                        <div class="background"
+                            style="background-image:url('https://user-images.githubusercontent.com/10026516/74007737-67ab8b00-49c2-11ea-914f-14769b1e44be.png')">
+                        </div>
+                </div class="float_image">
+
+                <div class="float_image" >
+                    <p class="lower_date">{{today_plus1}}</p>
+                    <div class="background"
+                    style="background-image:url('https://user-images.githubusercontent.com/10026516/74007804-8f9aee80-49c2-11ea-96e9-342afbae62fd.png');">
+                    </div>
+                </div>
+                
+                <div class="float_image" >
+                    <p class="lower_date">{{today_plus2}}</p>
+                    <div class="background"
+                        style="background-image:url('https://user-images.githubusercontent.com/10026516/74007812-988bc000-49c2-11ea-96bd-10f3cfab2137.png');">
+                    </div>
+                </div>
+                <div class="float_image">
+                    <p class="lower_date">{{today_plus3}}</p>
+                    <div class="background"
+                style="background-image:url('https://user-images.githubusercontent.com/10026516/74007825-a3deeb80-49c2-11ea-9691-ba5a028de475.png');">
+                
+                </div>
+                
+            
+            </div>
+        </div>
+    </div>
+        <script>
+            var vm=new Vue({
+                el:'#front',
+                data:{
+                    weather:'sunny',
+                    weather_url:'',
+                    Temperature:28,
+                    humidity:10,
+                    windP:15,
+                    Location:'Seoul',
+                    today:'',
+                    today_plus1:'',
+                    today_plus2:'',
+                    today_plus3:''
+                },
+                mounted:function(){
+                    var today = new Date();
+                    this.today+=today.getMonth()+1+"월"+today.getDate()+"일";
+                    this.today_plus1+=today.getMonth()+1+"월"+(today.getDate()+1)+"일";
+                    this.today_plus2+=today.getMonth()+1+"월"+(today.getDate()+2)+"일";
+                    this.today_plus3+=today.getMonth()+1+"월"+(today.getDate()+3)+"일";
+                }
+
+            });
+        </script>
+    </body>
+</html>
