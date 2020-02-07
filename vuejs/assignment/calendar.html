@@ -1,0 +1,126 @@
+<!-- v-for 사용해서 계산기 만들기 -->
+<!-- 15반 전태준 -->
+<html>
+<head>
+    <title>Calendar</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+    .button{
+       width: 120px;height:120px;margin-top:5px;margin-bottom: 5px;
+       font-size: 30;
+       text-align: center;
+    }
+    .weekday{
+        font-size:20;
+        width: 120px;height:50px;margin-top:5px;margin-bottom: 5px;
+        text-align: center;
+        border: white;
+    }
+    table{
+        margin-top: 10px;
+        border:solid 1px #b1b1b1;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <br>
+        <form v-on:submit="calculate" action="#" mothod="post">
+            <input type="text" size = "10" v-model="year"><span>년     </span><input type="text" size = "10" v-model="month"><span>월</span>
+            <input type="submit"  value="출력">
+        </form>
+        <table>
+            <!-- first blank -->
+            <caption style="font-size: 30px;font-weight: bolder;margin-bottom: 20px;">Calendar</caption>
+            <caption style="font-size: 30px;font-weight: bolder;">{{year_text}}년 {{month_text}}월</caption>
+            <tr>
+            <template v-for="(value,index) in weekdays">
+                <template v-if="index%7==0">
+                    <td><input type="text" class = "weekday" style="color:red":value = value readonly></td>
+                </template>
+                <template v-else-if="index%7==6">
+                    <td><input type="text" class = "weekday" style="color:blue":value = value readonly></td>
+                </template>
+                <template v-else>
+                    <td><input type="text" class = "weekday" :value = value readonly></td>
+                </template>
+            </template>
+            </tr>
+            <template v-for="i in currentWeekDay">
+                <td><input type="hidden" class = "button" ></td>
+            </template>
+            <template v-for="(value,index) in currentMonth">
+                <template v-if="index!=0 && (index+currentWeekDay)%7==0"><tr></template>
+                <template v-if="(index+currentWeekDay)%7==0">
+                    <td><p class = "button"  style="color:red">{{index+1}}</td>
+                </template>
+                <template v-else-if="(index+currentWeekDay)%7==6">
+                    <td><p class = "button" style="color:blue">{{index+1}}</p></td>
+                </template>
+                <template v-else>
+                    <td><p class = "button" >{{index+1}}</td>
+                </template>
+                <template v-if="index%7==6"></tr></template>
+            </template>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            ans:'',
+            weekdays:[
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+            ],
+            month:0,
+            month_text:'',
+            year_text:'',
+            year:0,
+            currentWeekDay:0,
+            currentMonth:0
+        },
+        methods:{
+            calculate:function(){//calculate current month and weekday
+                var first = new Date(this.year,this.month-1,1);
+                console.log(this.year);
+                console.log(this.month);
+                this.currentWeekDay = first.getDay();
+                var curM = first.getMonth()+1;
+                if(curM==1||curM==3||curM==5||curM==7||curM==8||curM==10||curM==12){
+                    this.currentMonth = 31;
+                }
+                else if(curM!=2){
+                    this.currentMonth = 30;
+                }
+                else{//2월
+                    var curY = first.getFullYear();
+                    if(curY%400==0)this.currentMonth = 29;
+                    else if(curY%100==0)this.currentMonth = 28;
+                    else if(curY%4 == 0)this.currentMonth = 29;
+                    else this.currentMonth = 28;
+                }
+                this.month_text = this.month.toString();
+                this.year_text = this.year.toString();
+                console.log(this.currentWeekDay);
+                console.log(this.currentMonth);
+            }
+        },
+        created:function(){
+            console.log("beforeCreate");
+            var month = new Date();
+            this.month = month.getMonth()+1;
+            this.year = month.getFullYear();
+            this.calculate();
+            //return month.getMonth()+1;
+        }
+    });
+</script>
+</html>
