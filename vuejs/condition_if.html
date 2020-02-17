@@ -6,7 +6,7 @@
         <div id = "app">
             <p v-if="ismessage">{{message}}</p>
             <p v-if="iserror">{{error}}</p>
-            <button v-on:click="switch">스위치버튼</button>
+            <button v-on:click="switch_1">스위치버튼</button>
             <div v-if="kind=='system'">
                 시스템:{{message}}
             </div>
@@ -34,7 +34,7 @@
             kind:'system',
         },
          methods:{
-            switch:function(){
+            switch_1:function(){
                 this.ismessage = !this.ismessage;
                 this.iserror = !this.iserror;
             }
