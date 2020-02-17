@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <style></style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" value="기택" v-model="checkedNames">
+        <label >기택</label>
+        <input type="checkbox" value="기우" v-model="checkedNames">
+        <label>기우</label>
+        <input type="checkbox" value="기정" v-model="checkedNames">
+        <label>기정</label>
+        <span>체크한 이름 : {{message}}</span>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                checkedNames:[],
+                message:""
+            },
+            watch:{
+                checkedNames:function(newVal,oldVal){
+                    this.message=newVal.join(', ');
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

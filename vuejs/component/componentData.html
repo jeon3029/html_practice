@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        button{
+            width:10%;
+            height:30px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('my-counter',{
+            template:'<button v-on:click="counter +=1">{{counter}}</button>',
+            data:function(){
+                return{counter:0}
+            }
+        })
+        new Vue({
+            el: '#app',
+            
+        });
+    </script>
+</body>
+
+</html>

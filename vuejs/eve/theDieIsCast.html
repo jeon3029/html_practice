@@ -1,0 +1,40 @@
+<html>
+    <head>
+
+    
+    <script src="https://unpkg.com/vue"></script>
+    <style></style>
+    </head>
+
+    <body>
+        <div id="app">
+            Random casted : {{num+1}}&nbsp;&nbsp;&nbsp;<button v-on:click="cast">cast</button><br><br>
+            <img :src="diceFace">
+        </div>
+        <script>
+            const app=new Vue({
+                el:"#app",
+                data:{
+                    num:0,
+                    dicefaces:['https://www.wpclipart.com/recreation/games/dice/die_face_1.png',
+                    'https://www.wpclipart.com/recreation/games/dice/die_face_2.png',
+                    'https://www.wpclipart.com/recreation/games/dice/die_face_3.png',
+                    'https://www.wpclipart.com/recreation/games/dice/die_face_4.png',
+                    'https://www.wpclipart.com/recreation/games/dice/die_face_5.png',
+                    'https://www.wpclipart.com/recreation/games/dice/die_face_6.png']
+                },
+                methods:{
+                    cast:function(){
+                        this.num = Math.floor(Math.random()*6);
+
+                    }
+                },
+                computed:{
+                    diceFace:function(){
+                        return this.dicefaces[this.num];
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

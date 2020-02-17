@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <style></style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello, {{message}}</h1>{{message}}
+        <!-- <input type="text" v-model.lazy="message" placeholder="입력하시오"> -->
+        <input type="text" v-model.lazy.trim="message" placeholder="입력하시오">
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: 'World'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <style></style>
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="selected" multiple>
+            <option>기택</option>
+            <option>기우</option>
+            <option>기정</option>
+            <option v-for="option in options" v-bind:value="option.value">
+                {{option.text}}</option>
+            </select>
+            <br>
+            <span>{{message}}</span>
+            </div>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                options:[
+                    {text:'A',value:'A'},
+                    {text:'B',value:'B'},
+                    {text:'C',value:'C'},
+                ],
+                selected:[],message:''
+            },
+            watch: {
+                selected:function(newVal,oldVal){
+                    this.message=newVal.join(', ');
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

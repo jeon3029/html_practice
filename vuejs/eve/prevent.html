@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <style></style>
+    <title>Vue Template - Watch</title>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="doPrevent" action="/doPrevent">
+        <input type="submit" value="Default Action Cancle">
+        </form>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                
+            },
+            methods: {
+                doPrevent:function(){
+                    console.log("기본동작 취소");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

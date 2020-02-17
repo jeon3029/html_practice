@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        table{
+            width:100%;
+            border:1px solid #444444;
+            border-collapse: collapse;
+        }
+        th,td{
+            border:1px solid #444444;
+            padding:10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <table><tr is="my-row"></tr>   
+            </table>
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var child={
+            template:'<tr><td>test1</td><td>test2</td></tr>'
+        }
+        new Vue({
+            el: '#app',
+            components: {
+                'my-row':child
+            }
+        });
+    </script>
+</body>
+
+</html>

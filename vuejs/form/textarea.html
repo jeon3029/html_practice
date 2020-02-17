@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <style></style>
+</head>
+<body>
+    <div id="app">
+    <span>Multi-line message:</span>>{{message}}<br><br>
+    <textarea v-model="message" placeholder="여러줄 입력하세요"></textarea>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data: {
+                message: 'World'
+            },
+            watch: {
+                message: function (newVal,oldVal) {
+                    console.log(newVal);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
