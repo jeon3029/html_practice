@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .list{
+            width:240px;
+            padding:0;
+            border:1px solid #000000;
+        }
+        .item{
+            display:inline-flex;
+            justify-content:center;
+            align-items:center;
+            margin:4px;
+            width:40px;height:40px;
+            color:white;
+            background-color:#555555;
+        }
+        .v-enter-active, .v-leave-active, .v-move{
+            transition:opacity 0.5s, transform 0.1s;
+        }
+        .v-leave-active{
+            position:absolute;
+        }
+        .v-enter{
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .v-leave-to{
+            opacity: 0;
+            transform:translateY(20px)
+        }
+    </style>
+</head>
+
+<body>
+    <div id="databinding">
+        <p>
+        <button @click="doAdd">추가</button>
+        <button @click="current=1">전체</button>
+        <button @click="current=n" v-for="n in [3,5]":key="n">{{n}}의 배수</button>
+        <button @click="doSort">정렬</button>
+        </p>
+        <transition-group tag="ul" class="list">
+            <li v-for="(item,index) in filteredList"
+            :data-index="index"
+            :key="item"
+            class="item"
+            @click="doRemove(item)">{{item}}</li>
+        </transition-group>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#databinding",
+            data(){
+                return {
+                    current:1,
+                    list:[1,2,3,4,5,6,7,8,9,10]
+                }
+            },
+            computed:{
+                filteredList(){
+                    return this.list.filter(el=>el%this.current===0)
+                }
+            },
+            methods:{
+                doAdd(){
+                    console.log(this.list.length);
+                    if(this.list.lenth!=0){
+                        const newNumber = Math.max.apply(null,this.list)+1
+                        const index=Math.floor(Math.random()*(this.list.length+1))
+                        this.list.splice(index,0,newNumber)
+                        console.log(newNumber);
+                    }
+                    else{
+                        console.log("123");
+                        this.list.splice(0,0,1);
+                    }
+                },
+                doRemove(item){
+                    this.list.splice(this.list.indexOf(item),1)
+                },
+                doSort(){
+                    function compare(a, b) {
+                    if (a < b) return -1; if (a> b)
+                        return 1;
+                        return 0;
+                    }
+                    this.list.sort(compare);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
