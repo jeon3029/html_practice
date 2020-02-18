@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        button{
+            width:10%;
+            height:30px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <my-counter counter="1"></my-counter>
+        <my-counter2 v-bind:counter="1"></my-counter2>
+        <my-counter3 v-bind:initial-counter="counter"></my-counter3>
+    </div>
+    <script>
+        Vue.component('my-counter',{
+            props:['counter'],
+            template:'<button v-on:click="counter=parseInt(counter)+1">{{counter}}</button>'
+        });
+        Vue.component('my-counter2',{
+            props:['counter'],
+            template:'<button v-on:click="counter+=1">{{counter}}</button>'
+        });
+        Vue.component('my-counter3',{
+            props:['initialCounter'],
+            template:'<button @click="addCounter">{{counter}}</button>',
+            data:function(){
+                return{
+                    counter:this.initialCounter
+                };
+            },
+            methods:{
+                addCounter:function(){
+                    this.counter+=1;
+                }
+            }
+        })
+        new Vue({
+            el:'#app',
+            data:{
+                counter:0
+            }
+        });
+    </script>
+</body>
+</html>

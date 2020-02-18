@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        input{
+            border:1px solid #888;font-size: 1.2rem;padding: 0.5rem;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        Price:
+        <my-currency-input v-model="price"></my-currency-input v-model>
+        <p>Price(in parent compenent): {{price}}</p>
+    </div>
+    <script>
+        Vue.component('my-currency-input',{
+            props:['value'],
+            template:'<div><input type="text" v-model="displayValue"@blur="isInputActive=false"@focus="isInputActive=true"/></div>',
+            data:function(){
+                return {
+                    isInputActive:false
+                }
+            },
+            computed:{
+                displayValue:{
+                    get:function(){
+                        if(this.isInputActive){
+                            return this.value.toString();
+                        }else{
+                            return "$"+this.value.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g,"$1,")
+                        }
+                    },
+                    set:function(modifiedValue){
+                        let newValue=parseFloat(modifiedValue.replace(/[^\d\.]/g,""));
+                        if(isNaN(newValue)){
+                            newValue=0;
+                        }
+                        console.log(newValue);
+                        this.$emit('input',newValue);
+                    }
+                }
+            }
+        });
+
+        new Vue({
+            el:'#app',
+            data:function(){
+                return{
+                    price:100
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

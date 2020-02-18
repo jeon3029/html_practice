@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        button{
+            width:30%;
+            height:30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <my-checkbox v-model="checked" value="unchanged"></my-checkbox>{{checked}}
+    </div>
+    <template id="my_checkbox">
+        <div>
+            My value is {{value}} : 
+            <input type="checkbox" :value="value" @change="$emit('change',!checked)">
+        </div>
+    </template>
+    <script>
+        Vue.component('my-checkbox',{
+            template:'#my_checkbox',
+            model:{
+                prop:'checked',
+                event:'change'
+            },
+            props:{
+                value:String,
+                checked:{
+                    type:Boolean,
+                    default:true
+                }
+            }
+        });
+        new Vue({
+            el:'#app',
+            data:{
+                checked:null
+            }
+        });
+    </script>
+</body>
+</html>

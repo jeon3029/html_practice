@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        button{
+            width:10%;
+            height:30px;
+        }
+    </style>
+<!-- 시험출제 -->
+</head>
+<body>
+    <div id="app">
+        <p>{{total}}</p>
+        <my-counter v-on:increment="incrementTotal"></my-counter>
+        <my-counter v-on:increment="incrementTotal"></my-counter>
+    </div>
+    <script>
+        Vue.component('my-counter',{
+            template:'<button v-on:click="increment">{{counter}}</button>',
+            data:function(){
+                return{counter:0}
+            },
+            methods:{
+                increment:function(){
+                    this.counter +=1;
+                    this.$emit('increment',1);
+                }
+            }
+        });
+        new Vue({
+            el:'#app',
+            data:{
+                total:0
+            },
+            methods:{
+                incrementTotal:function(num){
+                    this.total+=num;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

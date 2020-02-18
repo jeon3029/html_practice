@@ -1,0 +1,53 @@
+<!-- Parent Component -->
+<div id="app">
+  <my-checkbox v-model="checked" value="unchanged" v-on:change="setCheck"></my-checkbox>{{checked}}
+</div>
+
+<!-- Child Component -->
+<template id="my_checkbox">
+  <div>
+    My value is {{ m_value }} : 
+    <input type="checkbox" v-bind:value="value" @change="$emit('change', !checked)">
+  </div>
+</template>
+<script src="https://unpkg.com/vue"></script> 
+<script>
+  Vue.component('my-checkbox', {
+    template: '#my_checkbox',
+    model: {
+      prop: 'checked',
+      event: 'change'
+    },
+    props: {
+      value: String,
+      // this allows using the `value` prop for a different purpose
+      // use `checked` as the prop which take the place of `value`
+      checked: {
+        type: Boolean,
+        default: false
+      } 
+    },    
+    data: ()=>({
+      m_value: 'unchanged', 
+      m_checked: this.checked 
+    }),
+    watch: {
+      checked: function(data) { 
+        this.m_value=(this.checked)?"changed":"unchanged"; 
+        console.log(this.checked);
+      } 
+    } 
+  })
+
+  new Vue({
+    el: "#app",
+    data: {
+      checked: ''
+    },
+    methods: {
+      setCheck: function(isTrue) {
+        console.log(isTrue); 
+      }
+    }
+  })
+</script>
