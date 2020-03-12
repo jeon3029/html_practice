@@ -1,0 +1,33 @@
+<!--
+@author [jeon3029]
+@email [jeon3029@naver.com]
+@create date 2020-03-12 12:10:28
+@modify date 2020-03-12 12:23:44
+@desc [description]
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF08">
+        <title>title</title>
+        <style type="text/css">    
+        </style>
+        <!-- 외부파일 형태 -->
+        <script type="text/javascript">
+        var num = Math.floor(Math.random()*10+1);
+        num = Number(num);
+        var cnt = 0;
+        while(true){
+            var guess = prompt("숫자를 예측하세요 : 1~10"+"\n"+"현재까지 예측한 횟수 : "+cnt);
+            cnt+=1;
+            if (guess==num){
+                break;
+            }
+        }
+        document.write("맞추는데 걸린 횟수 : "+ cnt);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
