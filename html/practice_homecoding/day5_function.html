@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF08">
+        <title>title</title>
+        <style type="text/css">
+            
+        </style>
+
+        <script type="text/javascript">
+        //js에서는 함수도 객체 : 1급객체
+        // 1. 선언적 함수 : 이름 있는 함수
+        function go(a){ 
+            a++;
+            return "hello"+a;
+        }
+        console.log(go(1,2,3));
+        var score = [10,20,30];
+        function sum(arr){
+            var total=0;
+            for(var i=0;i<arr.length;i++){
+                total+=arr[i];
+            }
+            return total;
+        }
+        console.log(sum(score));
+        //2. 익명함수 : 이름 없는 함수
+        var f1 = function(){
+            alert("hi");
+        }
+        f1();
+        //3. parameter 로 함수 사용 가능
+        function test(abc){
+            abc();
+        }
+        test(f1);
+        //4. return 갑으로 함수 사용 가능
+        function test2(num){
+            num++;
+            return function(){
+                alert(num+"hi");
+            }
+        }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
