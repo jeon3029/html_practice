@@ -1,0 +1,104 @@
+<!--
+@author [jeon3029]
+@email [jeon3029@naver.com]
+@create date 2020-03-16 17:17:12
+@modify date 2020-03-16 18:05:51
+@desc [when press button, show random picture]
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF08">
+        <title>title</title>
+		<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+        <style type="text/css">   
+			#container{
+				width:960px;
+				height:870px;
+				padding: 20px;
+                margin:0 auto; /* 상하, 좌우 */
+                border:5px solid #3333;
+				font-family: 'Sunflower', sans-serif;
+			} 
+			#listImg{
+				width:1000px;
+				height:250px;
+			}
+			.img{
+				width: 200px;
+				height:200px;
+			    background: #3333;
+			    padding: 15px 0;
+				margin-top:20px;
+			    float: left;
+			}
+			#show{
+				width:400px;
+				height:450px;
+			}
+        </style>
+    </head>
+    <body>
+		<div id="container">
+			<button id="btn" onClick="changeImage(-1)">
+				Random Select
+			</button>
+			<div id="show">
+				<span>Selected Image : </span> <h2 id="dramaName" style="margin-bottom:0px"> 블랙미러</h2>
+				<img src="img/blackmirror.jpg" id = "innerImage" style="width:300px;height:350px;padding-top:20px;"/>
+			</div>
+			<h3> List of Image </h3>
+			<div id="listImg">
+				<img id="drama_0" src="img/blackmirror.jpg" class="img" onClick="clickImage(0)">
+				<img id="drama_1" src="img/itaewon.jpg" class="img" onClick="clickImage(1)">
+				<img id="drama_2" src="img/kingdom.jpg" class="img"onClick="clickImage(2)">
+				<img id="drama_3" src="img/rickandmorty.jpg"class="img"onClick="clickImage(3)">
+			</div>
+			<footer>
+				<h4>You can click the image</h4>
+				Designed By : <a href="https://github.com/jeon3029" >jeon3029</a>
+			</footer>
+		</div>
+    </body>
+	<script type="text/javascript">
+			var selected = 0;
+			var arr=["img/blackmirror.jpg",
+					 "img/itaewon.jpg",
+					 "img/kingdom.jpg",
+					 "img/rickandmorty.jpg",
+					];
+			var arr_name=["블랙미러",
+				"이태원클라스",
+				"킹덤",
+				"릭앤모티"
+			];
+			
+			function changeImage(i){
+				var num;
+				if(i==-1)num = Math.floor(Math.random()*4);
+				else num = i;
+				var dname = document.getElementById("dramaName");
+				dname.innerHTML = arr_name[num];
+				var iImg = document.getElementById("innerImage");
+				iImg.src=arr[num];
+				selected = num;
+				select();
+			}
+			function select(){
+				for(var i=0;i<4;i++){
+					if(i!=selected){
+						document.getElementById("drama_" + i).setAttribute("style","margin-top : 20px;border:0;opacity:0.5;background:#3333");
+					}
+					else{
+						document.getElementById("drama_" + i).setAttribute("style","margin-top : 0px;border:5px solid #34495E;background:#333;opacity:1;");
+					}
+				}
+			}
+			function clickImage(i){
+				selected=i;
+				select();
+				changeImage(i);
+			}
+			select();
+        </script>
+</html>
