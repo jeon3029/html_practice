@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html> 
+<header>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		
+	</style>
+</header>
+<body>
+	
+	<script>
+		var data= [10,20,30,40,50];
+		for (var i=0;i<data.length;i++)
+		{
+			console.log(data[i]);
+		}
+
+		for (var i = 0; i < data.length;i++)
+		{
+			if(data[i] > 30){
+				console.log(data[i]);
+			}
+		}
+
+		function forEach(data, cb){
+			console.log(typeof cb);
+			for(var i = 0;i<data.length;i++)
+			{
+				cb(data[i], i);
+			}
+		}
+
+
+
+
+
+		forEach(data, function (value, index){
+			console.log(index + " - " + value);
+		});
+
+		forEach(data, function (value, index){
+			if(value>30){
+				console.log(index + " - " + value);
+			}
+		});
+
+		data.forEach(
+			function(value, index){
+				console.log(index + ":" + value);
+			}
+		)
+	</script>
+	
+</body>
+</html>

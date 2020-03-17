@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html> 
+<header>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		
+	</style>
+</header>
+<body>
+	
+	<script>
+        // function Member() {
+
+        // }
+        // console.dir(Member);
+        // var m = {};
+        // console.dir(m);
+
+
+		function Member(id, name) {
+            this.id = id;
+            this.name = name;
+        }
+        Member.prototype.insa = function(name) {
+            console.log(this.name + " h1!");
+        };
+        var m1 = new Member ("a", "a님");
+        var m2 = new Member ("b", "b님");
+        m1.insa();
+        m2.insa();
+        console.dir(m1);
+        console.dir(m2);
+	</script>
+	
+</body>
+</html>
