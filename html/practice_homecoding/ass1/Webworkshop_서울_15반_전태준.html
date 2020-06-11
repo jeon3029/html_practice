@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF08">
+    <title>title</title>
+    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Roboto&display=swap" rel="stylesheet">
+    <style type="text/css">
+        #container{
+            width:960px;
+            padding: 20px;
+            margin:0 auto; /* 상하, 좌우 */
+            border:1px solid #D3D4D9;
+            font-family: 'Cute Font', sans-serif;
+        }
+        header{
+            padding : 5px;
+            margin-bottom: 20px;
+            background-color: #beebe9;
+        }
+        header h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        section{
+            width:620px;
+            height:900px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            border:1px solid #4B88A2;
+            float:left;
+        }
+        aside{
+            width:270px;
+            height: 900px;
+            padding-left:20px; */
+            margin-bottom: 20px;
+            border:1px solid #4B88A2;
+            float:right;
+        }
+        footer{
+            padding :20px;
+            border:1px solid gray;
+            clear:both;
+        }
+        tbody tr:nth-child(2n) { 
+            background-color: #fffdf9;
+        }
+        tbody tr:nth-child(2n+1) { 
+            background-color: #ecfbfc;
+        }
+        table{
+            border-collapse:collapse;
+            width:95%;
+            text-align: center;
+        }
+        caption{
+            font-size: 20px;
+        }
+        article{
+            margin-left:40px;
+        }
+        section h2{
+            margin-bottom: 0px;
+        }
+        .day_sep{
+            border-top: 1px double grey;
+        }
+        .middle{
+            width:100%;
+            height:100%;
+            /* display:flex; */
+        }
+        img{
+            height:250px;
+            width : 90%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>여행 계획표</h1>
+        </header>
+        <div class="middle">
+            <section>
+                <h2> 1. 여행 일정</h2>
+                <article>
+                    <table>
+                        <thead>
+                            <caption> 러시아 여행 계획 일정</caption>
+                            <tr>
+                                <th style="width: 20%;"> 시간</th>
+                                <th style="width:50%"> 일정</th>
+                                <th> 비고</th>
+                            </tr>
+                            <tr class="day_sep">
+                                <td> 1일차 09:00 ~ 12:00</td>
+                                <td> 인천공항 : 서울 -> 블라디보스톡</td>
+                                <td> 여권 챙기기</td>
+                            </tr>
+                            <tr>
+                                <td> 1일차 12:00 ~ 13:00</td>
+                                <td> 호텔 체크인 </td>
+                                <td> 선라이즈 아파트 호텔</td>
+                            </tr>
+                            <tr>
+                                <td> 1일차 13:00 ~ 15:00</td>
+                                <td> 점심 식사</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td> 1일차 15:00 ~ 17:00</td>
+                                <td> 마린스키 극장 공연</td>
+                                <td> Le Corsaire(발레) </td>
+                            </tr>
+                            <tr>
+                                <td> 1일차 17:00 ~ 19:00</td>
+                                <td> 저녁 식사</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 1일차 19:00 ~      </td>
+                                <td> 휴식</td>
+                                <td> - </td>
+                            </tr>
+                            <tr class="day_sep">
+                                <td > 2일차 09:00 ~ 12:00 </td>
+                                <td> 아르바트 거리</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 12:00 ~ 13:00 </td>
+                                <td> 점심 식사</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 14:00 ~ 16:00 </td>
+                                <td> 독수리 전망대</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 16:00 ~ 17:00 </td>
+                                <td> 해적 커피</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 17:00 ~ 18:00 </td>
+                                <td> 개선문</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 18:00 ~ 20:00 </td>
+                                <td> 해군 박물관</td>
+                                <td> - </td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 20:00 ~ 21:00 </td>
+                                <td> 저녁 식사</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 2일차 21:00 ~ 08:21 </td>
+                                <td> 시베리아 횡단열차 출발</td>
+                                <td> 블라디보스톡 -> 하바롭스크</td>
+                            </tr>
+                            <tr class="day_sep">
+                                <td > 3일차 10:00 ~ 12:00 </td>
+                                <td>성모 승천 성당</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 3일차 12:00 ~ 13:00 </td>
+                                <td> 레닌 광장</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 3일차 13:00 ~ 15:00 </td>
+                                <td> 중앙시장</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 3일차 17:00 ~ 18:00 </td>
+                                <td> 저녁 식사</td>
+                                <td> 조지아 레스토랑 - Satsivi</td>
+                            </tr>
+                            <tr class="day_sep">
+                                <td > 4일차 09:00 ~ 11:00 </td>
+                                <td> 동방정 교회</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 4일차 12:00 ~ 14:00 </td>
+                                <td> 뮤지컬 관람</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 4일차 14:00 ~ 16:00 </td>
+                                <td> 향토박물관</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 4일차 16:00 ~ 20:00 </td>
+                                <td> 자율</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td > 4일차 20:45 ~ 08:27 </td>
+                                <td> 사베리아 횡단열차</td>
+                                <td> 하바롭스트 -> 블라디보스톡</td>
+                            </tr>
+                            <tr>
+                                <td > 5일차 12:00 ~ 15:00 </td>
+                                <td> 블라디보스톡 공항</td>
+                                <td> 블라디보스톡->서울</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </article>
+                <h2> 2. 준비 사항</h2>
+                <article >
+                    <ul style="margin:0">
+                        <li> 환전</li>
+                        <li> 마린스키 극장 예약</li>
+                        <li> 숙소 예약</li>
+                        <li> 비행기표 예약</li>
+                        <li> 멀티탭(220V), 옷, 세면도구 등</li>
+                    </ul>
+                </article>
+                <h2> 3. 참고사항</h2>
+                <article >
+                    <ul style="margin:0">
+                        <li> 날씨 : 0℃ ~ 10℃</li>
+                    </ul>
+                </article>
+            </section>
+            <aside>
+                <h2>4. 여행 사진</h2>
+                <img src="https://user-images.githubusercontent.com/10026516/76685204-38d5a400-6655-11ea-8ca5-e27e9d8f2bb1.jpg">
+                <img src="https://user-images.githubusercontent.com/10026516/76685200-36734a00-6655-11ea-90a4-ad6517821c2d.jpg">
+                <img src="https://user-images.githubusercontent.com/10026516/76685205-3a06d100-6655-11ea-90ef-a136e632d3d7.jpg">
+            </aside>
+        </div>
+        <footer>
+            <h3>Designed by : <a href="https://github.com/jeon3029" >Jeon Tae Joon</a>
+            </h3>
+        </footer>
+    </div>
+</body>
+</html>
